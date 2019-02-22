@@ -1,0 +1,12 @@
+name: RUNT-predict
+title: RUNT-predict
+username:
+account: tae-2018-2
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 499603
+bundleId: 1646689
+url: https://tae-2018-2.shinyapps.io/RUNT-predict/
+when: 1539732727.83021
+asMultiple: FALSE
+asStatic: FALSE
