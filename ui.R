@@ -1,5 +1,6 @@
 library(shiny)
 library(shinydashboard)
+library("EBImage")
 
 ui <- dashboardPage(
   dashboardHeader(title = "Image Classification"),
@@ -26,10 +27,16 @@ ui <- dashboardPage(
                   box(width = 12,
                       tableOutput("contents")
                   ),
-                  box(width = 12,
-                      textOutput("result")
+                  box(width = 4,
+                      plotOutput("raster")
+                  ),
+                  box(width = 4,
+                      displayOutput("widget")
+                  ),
+                  box(width = 4,
+                      h1(textOutput("result"))
                   )
-              )
+            )
       ),
       tabItem(tabName = "report",
                includeHTML("reporte.html")
