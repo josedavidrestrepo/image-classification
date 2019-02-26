@@ -5,8 +5,8 @@ account: tae-2018-2
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 737955
-bundleId: 1897805
+bundleId: 1899974
 url: https://tae-2018-2.shinyapps.io/image-classification/
-when: 1551097268.32051
+when: 1551158127.90523
 asMultiple: FALSE
 asStatic: FALSE

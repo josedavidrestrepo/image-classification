@@ -1,6 +1,6 @@
 library(shiny)
 library(shinydashboard)
-library("EBImage")
+library(EBImage)
 
 ui <- dashboardPage(
   dashboardHeader(title = "Image Classification"),
@@ -17,21 +17,16 @@ ui <- dashboardPage(
     tabItems(
       tabItem(tabName = "predicts",
               fluidRow(
-                  box(status = "warning", width = 5,
+                  box(status = "warning", width = 5, offset = 7,
                       fileInput("file", "Seleccione una imagen",
                                 multiple = FALSE,
                                 accept = c("image/*,.pgm"
-                                           
-                                           ))
-                  ),
-                  box(width = 12,
-                      tableOutput("contents")
-                  ),
-                  box(width = 4,
+                                    ))
+                  )
+              ),
+              fluidRow(
+                  box(width = 4, 
                       plotOutput("raster")
-                  ),
-                  box(width = 4,
-                      displayOutput("widget")
                   ),
                   box(width = 4,
                       h1(textOutput("result"))
@@ -39,7 +34,7 @@ ui <- dashboardPage(
             )
       ),
       tabItem(tabName = "report",
-               includeHTML("reporte.html")
+              includeHTML("reporte.html")
       ),
       tabItem(tabName = "about",
               tags$div(
