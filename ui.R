@@ -2,6 +2,10 @@ library(shiny)
 library(shinydashboard)
 library(EBImage)
 
+faces <- list.files(all.files = FALSE, path = "faces/",
+                    full.names = FALSE, recursive = TRUE,
+                    ignore.case = FALSE, include.dirs = FALSE, no.. = FALSE)
+
 ui <- dashboardPage(
   dashboardHeader(title = "Image Classification"),
   skin = "purple",
@@ -17,21 +21,28 @@ ui <- dashboardPage(
     tabItems(
       tabItem(tabName = "predicts",
               fluidRow(
-                  box(status = "warning", width = 5, offset = 7,
-                      fileInput("file", "Seleccione una imagen",
-                                multiple = FALSE,
-                                accept = c("image/*,.pgm"
-                                    ))
-                  )
-              ),
-              fluidRow(
-                  box(width = 4, 
-                      plotOutput("raster")
+                column(4,
+                  box(status = "warning", width = 12,
+                      selectInput("select", label = "Seleccione una imagen del data set", 
+                                  choices = faces, 
+                                  selected = 1)
                   ),
-                  box(width = 4,
-                      h1(textOutput("result"))
+                  hr(),
+                  box(status = "warning", width = 12,
+                      fileInput("file", "O seleccione una imagen cualquiera",
+                                multiple = FALSE,
+                                accept = c("image/*")
+                      )
                   )
-            )
+                ),
+                column(8,
+                  plotOutput("raster"),
+                  hr(),
+                  hr(),
+                  h1(textOutput("result"))
+                )
+              ),
+              hr()
       ),
       tabItem(tabName = "report",
               includeHTML("reporte.html")
